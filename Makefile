@@ -1,10 +1,10 @@
 # makefile for srlua
 
 # change these to reflect your Lua installation
-LUA= /tmp/lhf/lua-5.2.0
-LUAINC= $(LUA)/src
-LUALIB= $(LUA)/src
-LUABIN= $(LUA)/src
+LUA=/home/djaysky/Sources/lua-5.4.7
+LUAINC=$(LUA)/src
+LUALIB=$(LUA)/src
+LUABIN=$(LUA)/src
 
 # these will probably work if Lua has been installed globally
 #LUA= /usr/local
@@ -14,7 +14,7 @@ LUABIN= $(LUA)/src
 
 # probably no need to change anything below here
 CC= gcc
-CFLAGS= $(INCS) $(WARN) -O2 $G
+CFLAGS= $(INCS) $(WARN) -O2 $G -D_GNU_SOURCE
 WARN= -ansi -pedantic -Wall -Wextra
 INCS= -I$(LUAINC)
 LIBS= -L$(LUALIB) -llua -lm -ldl

@@ -6,30 +6,10 @@
 * This code is hereby placed in the public domain.
 */
 
-#if defined(_WIN32)
-  #include <windows.h>
-  #define _PATH_MAX MAX_PATH
-#else
-  #define _PATH_MAX PATH_MAX
-#endif
+#include <linux/limits.h>
+#define _PATH_MAX PATH_MAX
 
-#if defined (__CYGWIN__)
-  #include <sys/cygwin.h>
-#endif
-
-#if defined(__linux__) || defined(__sun)
-  #include <unistd.h> /* readlink */
-#endif
-
-#if defined(__APPLE__)
-  #include <sys/param.h>
-  #include <mach-o/dyld.h>
-#endif
-
-#if defined(__FreeBSD__)
-  #include <sys/types.h>
-  #include <sys/sysctl.h>
-#endif
+#include <unistd.h> /* readlink */
 
 #include <errno.h>
 #include <stdio.h>
